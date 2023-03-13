@@ -31,12 +31,21 @@ int main()
             next_nine++;
         }
         int diff = next_nine - total;
-        vector <string> v;
-        for (int j=0; j<=n.length(); j++) {
-            string tmp = n;
-            v.push_back(tmp.insert(j, to_string(diff)));
+        if (diff < n[0] - '0') {
+            cout << "Case #" << i + 1 << ": " << diff << n << "\n";
+            continue;
+        } else {
+            int idx = 0;
+            while (idx < n.length()) {
+                if (n[idx] - '0' > diff) {
+                    cout << "Case #" << i + 1 << ": " << n.insert(idx, to_string(diff)) << "\n";
+                    break;
+                }
+                idx++;
+            }
+            if (idx == n.length()) {
+                cout << "Case #" << i + 1 << ": " << n << diff << "\n";
+            }
         }
-        sort(v.begin(), v.end());
-        cout << "Case #" << i+1 << ": " << v[0] << "\n";
     }
 }
