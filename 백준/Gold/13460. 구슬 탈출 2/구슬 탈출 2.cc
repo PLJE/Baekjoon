@@ -10,11 +10,9 @@ using namespace std;
 int n, m;
 int hx, hy;
 char board[11][11];
-// north: 0, east: 1, south: 2, west: 3
 int dx[4] = {-1,0,1,0}; 
 int dy[4] = {0,1,0,-1};
 int visit [11][11][11][11];
-
 struct cur {
     int rx;
     int ry;
@@ -22,12 +20,7 @@ struct cur {
     int by;
     int cnt;
 };
-bool check(int x, int y) {
-    if (x>=1 && y>=1 && x<=n && y<=m) {
-        return true;
-    }
-    return false;
-}
+
 pair<int, bool> move(int x, int y, int dir) {
     bool reach_hole = false;
     int distance = 0;
@@ -70,7 +63,6 @@ int main()
     visit[icur.rx][icur.ry][icur.bx][icur.by] = 1;
     queue <cur> q;
     q.push(icur);
-    int dab = 0;
     while (!q.empty()) {
         cur now = q.front();
         q.pop();
@@ -89,20 +81,20 @@ int main()
             int next_bx = now.bx + (dx[i] * blue.first);
             int next_by = now.by + (dy[i] * blue.first);
             if (next_rx == next_bx && next_ry == next_by) {
-                if (i==0) {
+                if (i == 0) {
                     if (red.first > blue.first) {
                         next_rx++;    
                     } else {
                         next_bx++;
                     }
-                } else if (i==1) {
+                } else if (i == 1) {
                     if (red.first > blue.first) {
                         next_ry--;
                     }
                     else {
                         next_by--;
                     }
-                } else if (i==2) {
+                } else if (i == 2) {
                     if (red.first > blue.first) {
                         next_rx--;
                     }
