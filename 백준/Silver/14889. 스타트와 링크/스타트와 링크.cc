@@ -12,7 +12,6 @@ int n;
 int s[21][21];
 int comb[21];
 int team[21];
-int visit[111][111];
 int diff_min = INT_MAX;
 
 void cal(int half) {
