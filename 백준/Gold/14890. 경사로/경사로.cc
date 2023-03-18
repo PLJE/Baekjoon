@@ -17,12 +17,6 @@ bool chk(int x, int y, int height) {
         && slide[x][y] ==0) return true;
     return false;
 }
-void restore(int sx, int sy, bool is_row) {
-    for (int i=1; i<=N; i++) {
-        if (is_row) slide[sx][i] = 0;
-        else slide[i][sy] = 0;
-    }
-}
 bool chkLine(int sx, int sy, bool is_row) {
     if (is_row) {
         for (int col=sy+1; col<=N; col++) {
@@ -67,12 +61,10 @@ int main()
     }
     for (int i=1; i<=N; i++) {
         if (chkLine(i, 1, true)) ans++;
-        else restore(i, 1, true);
     }
     memset(slide, 0, sizeof(slide)); // 행과 열은 따로더라..
     for (int i = 1; i <= N; i++) {
         if (chkLine(1, i, false)) ans++;
-        else restore(1, i, false);
     }
     cout << ans;
 }
