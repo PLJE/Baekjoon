@@ -108,3 +108,6 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+# 풀이   
+lower_bound 사용시, 배열에 없는 요소일 경우 end를 리턴해서 divide by zero 에러가 나는 것을 고려 못했음   
