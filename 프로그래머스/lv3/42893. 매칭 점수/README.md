@@ -227,3 +227,9 @@ con%    muzI92apeach&amp;2&lt;a href="https://hashcode.co.kr/tos"&gt;&lt;/a&gt;
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+### 풀이
+파이썬의 정규 표현식을 써본 적이 없어서 헤맸던 문제   
+주어진 string에서 url, a tag 추출이나 word count 세는 것을 하나하나 구현했다.   
+그럴 필요 없이 파이썬의 정규식을 이용하면 매우 간단하게 할 수 있었다.   
+이 문제를 계길로 파이썬 정규식을 제대로 활용할 수 있도록 해야겠다 
