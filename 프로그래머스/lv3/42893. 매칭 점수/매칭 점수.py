@@ -5,18 +5,9 @@ def get_url(page):
     return res.group(1)
 
 def get_word_count(word, page):
-    word_len = len(word)
-    page_len = len(page)
-    cnt = 0
-    for i in range(page_len):
-        c = page[i]
-        if i + word_len - 1 >= page_len:
-            break
-        chk = page[i: i + word_len]
-        if chk == word:
-            if i-1 >= 0 and i + word_len < page_len:
-                if page[i-1].isalpha() == False and page[i + word_len].isalpha() == False:
-                    cnt += 1
+    w = re.compile('[a-z]+')
+    word_list = w.findall(page)
+    cnt = word_list.count(word)
     return cnt
     
 def find_external_link(page):
