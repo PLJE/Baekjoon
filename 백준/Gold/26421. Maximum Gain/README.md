@@ -36,3 +36,6 @@
 
  <p>For each test case, output one line containing <code>Case #x: y</code>, where <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$x$</span></mjx-container> is the test case number (starting from 1) and <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$y$</span></mjx-container> is the maximum number of points that Charles can gain in this test case.</p>
 
+### 내 풀이
+배열의 양쪽 끝 합의 최대 값을 구하는 것. 즉, 배열의 끝이나 시작 점부터만 접근할 수 있다.   
+2차원 배열에 길이 별(1~N) 누적합을 구해서, 그중 가장 작은 값을 배열 요소 전체 합에서 빼면, 그 길이에 대한 최대 합의 값을 구할 수 있다.   
