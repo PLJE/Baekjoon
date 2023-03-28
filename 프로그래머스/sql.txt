@@ -1,3 +1,22 @@
 # ifnull
-ifnull(column 명, null 일 때 출력 값)   
+IFNULL(column 명, null 일 때 출력 값)   
+
+#date_format
+DATE_FORMAT(DATE_OF_BIRTH, '%Y-%m-%d')
+
+#년월일 추출
+YEAR() MONTH() DAYOFMONTH()
+
+#LIKE
+컬럼 명 LIKE '%anyting%'
+
+# GROUP BY, HAVING 
+주로 같이 사용, 그룹화 한 후 COUNT, SUM 같은 함수 이용
+
+# UNION 
+
+# a JOIN b ON condition
+
+# LIMIT
+LIMIT 2 :  상위 2 개 레코드
 
