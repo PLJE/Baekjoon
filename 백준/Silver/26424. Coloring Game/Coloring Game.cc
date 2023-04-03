@@ -9,7 +9,6 @@
 using namespace std;
 
 int T, x;
-int col[1000001];
 
 int main() {
     cin >> T;
