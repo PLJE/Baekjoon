@@ -51,10 +51,9 @@ int main() {
         else {
             for (int i=0; level[i]!=0; i++) {
                 int cnt = level[i];
-                if (cnt <= Q) {
-                    ans += cnt;
-                    Q -= cnt;
-                }
+                if (cnt > Q) break;
+                ans += cnt;
+                Q -= cnt;
             }
         }
         cout << "Case #" << t << ": " << ans << "\n";
