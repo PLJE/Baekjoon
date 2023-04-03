@@ -50,3 +50,8 @@
 
  <p>For each test case, output one line containing <code>Case #x: y</code>, where <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$x$</span></mjx-container> is the test case number (starting from 1) and <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$y$</span></mjx-container> is the number of water containers that are completely filled after processing all the queries.</p>
 
+### 풀이
+Q는 함정이다. 처음에 케이스를 나눠가면서 어렵게 풀었다    
+그냥 어디에 물을 넣든 간에 총 넣는 물의 양만 보면 된다.   
+어차피 아래에서부터 누적되는 것이다.   
+레벨 별로 노드 개수를 dfs로 구하고, 밑에서부터 Q(물의 양)을 채우면서 다 채워지는 것 개수 구한다   
