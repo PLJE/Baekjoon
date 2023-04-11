@@ -1,54 +1,40 @@
-#include<iostream>
-#include<vector>
-#include<cmath>
-#include<string>
-#include<queue>
-#include<cstring>
-#include<bitset>
-#include<algorithm>
-#include<map>
-#include<climits>
-#include<set>
+#include <iostream>
+#include <climits>
+#include <string>
+#include <cstring>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <set>
+
 using namespace std;
 
-int N,K;
-int visit[100001][4];
-int range(int x ,int k){
-	if(x>=0 && x<=100000 && !visit[x][k]) return 1;
-	return 0;
-}
-int main(){
-	ios::sync_with_stdio(false);
-	cin.tie(0);
+int N, K;
+int visit[100001];
 
-	cin>>N>>K;
-	priority_queue <pair<int,int>> q;
-	q.push({-0 ,N});
-	visit[N][1] = 1;
-	visit[N][2] = 1;
-	visit[N][3] = 1;
-
-	while(!q.empty()){
-		int cnt = -q.top().first;
-		int cur = q.top().second;
-		q.pop();
-
-		if(cur == K){
-			cout<<cnt;
-			return 0;
-		}
-
-		if (range(cur * 2 , 1)) {
-			visit[cur * 2][1] = 1;
-			q.push({ -cnt , cur * 2 });
-		}
-		if(range(cur+1 ,2)){
-			visit[cur+1][2]=1;
-			q.push({ -(cnt+1), cur+1 });
-		}
-		if (range(cur - 1 ,3 )) {
-			visit[cur - 1][3] = 1;
-			q.push({ -(cnt + 1), cur-1 });
-		}
-	}
+int main() {
+    cin >> N >> K;
+    for (int i=0; i<=100000; i++) visit[i] = INT_MAX;
+    priority_queue <pair<int,int>> q;
+    q.push({0, N});
+    
+    while (!q.empty()) {
+        int now = q.top().second;
+        int sec = -q.top().first;
+        q.pop();
+        if (visit[now] > sec) {
+            visit[now] = sec;
+        }
+        if (now+1 <= 100000 && visit[now+1] > sec + 1) {
+            q.push({-(sec+1), now+1});
+        }
+        if (now-1>=0 && visit[now-1] > sec + 1) {
+            q.push({-(sec+1), now-1});
+        }
+        if (2*now <=100000 && visit[2*now] > sec) {
+            q.push({-sec, 2*now});
+        }
+    }
+    cout << visit[K];
+    return 0;
 }
