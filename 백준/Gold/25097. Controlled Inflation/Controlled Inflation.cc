@@ -46,10 +46,6 @@ int main() {
             dp[i-1][1] + abs(max_val-before_min));
         }
         ans += min(dp[N-1][0], dp[N-1][1]);
-        // for (int i=0;i<N;i++) {
-        //     for (int j=0;j<2;j++) cout<<dp[i][j] << " ";
-        //     cout <<"\n";
-        // }
         cout << "Case #" << t <<": " << ans <<"\n";
     }
     return 0;
