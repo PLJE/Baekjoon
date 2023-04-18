@@ -19,45 +19,41 @@ bool is_edge(int x, int y) {
     if (x>=1 && x<=N-1 && y>=1 && y<=M-1) return false; // inner
     return true; 
 }
+pair<int,int> to_xy(int dir, int dist) {
+    if (dir == 1) dir = 0;
+    else if (dir == 2) dir = N;
+    else if (dir == 3) {
+        dir = dist;
+        dist = 0;
+    }
+    else if (dir == 4) {
+        dir = dist;
+        dist = M;
+    }
+    return {dir, dist};
+}
 int main() {
     cin >> M >> N;
     cin >> k;
     int dir, dist;
     for (int i=0; i<k; i++) {
         cin >> dir >> dist;
-        if (dir == 1) dir = 0;
-        else if (dir == 2) dir = N;
-        else if (dir == 3) {
-            dir = dist;
-            dist = 0;
-        }
-        else if (dir == 4) {
-            dir = dist;
-            dist = M;
-        }
-        store.push_back({dir, dist});
+        store.push_back(to_xy(dir, dist));
     }
 
-    int sdir, sdist;
-    cin >> sdir >> sdist;
-    if (sdir == 1) sdir = 0;
-    else if (sdir == 2) sdir = N;
-    else if (sdir == 3) {
-        sdir = sdist;
-        sdist = 0;
-    }
-    else if (sdir == 4) {
-        sdir = sdist;
-        sdist = M;
-    }
+    int sx, sy;
+    cin >> sx >> sy;
+    pair<int,int> xy = to_xy(sx, sy);
+    sx = xy.first;
+    sy = xy.second;
 
     int ans = 0;
     for (int i=0; i<k; i++) {
         memset(visit,0,sizeof(visit));
-        dir = store[i].first;
-        dist = store[i].second;
+        int x = store[i].first;
+        int y = store[i].second;
         queue <vector<int>> q;
-        q.push({sdir,sdist,0});
+        q.push({sx,sy,0});
 
         while (!q.empty()) {
             int cx = q.front()[0];
@@ -65,7 +61,7 @@ int main() {
             int cd = q.front()[2];
             q.pop();
             visit[cx][cy] = 1;
-            if (cx == dir && cy == dist) {
+            if (cx == x && cy == y) {
                 ans += cd;
                 break;
             }
