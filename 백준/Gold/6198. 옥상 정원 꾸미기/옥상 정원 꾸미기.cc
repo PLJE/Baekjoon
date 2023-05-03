@@ -9,7 +9,7 @@ using namespace std;
 
 int N;
 vector <int> num;
-map <int, long long> cnt;
+map <int, int> cnt;
 
 int main() {
     ios_base::sync_with_stdio(false);
